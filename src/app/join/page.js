@@ -19,22 +19,22 @@ export default function Join() {
 
   const startGame = async () => {
     try {
-      setLoading(true);
+      setLoading(true); // Start loading here
+  
       await Nakama.authenticate();
       console.log("Authenticated");
-
-      await Nakama.findMatch();
+  
+      await Nakama.findMatch(); // The loading spinner will keep showing until this promise resolves
       console.log("Match found");
-
+  
       // Redirect to the game scene or do whatever you need to do next
-      setLoading(false);
     } catch (error) {
       console.error("An error occurred:", error);
-      setLoading(false);
       // Handle the error appropriately
+    } finally {
+      setLoading(false); // Stop loading here
     }
   };
-
   return (
     <>
       <div className={classes.joinContainer}>

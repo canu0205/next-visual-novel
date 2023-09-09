@@ -35,6 +35,7 @@ class Nakama {
         }
       }
 
+      
       async findMatch() {
         try {
             // List existing matches
@@ -43,8 +44,13 @@ class Nakama {
             // If there are existing matches, join the first one
             if (matches.matches.length > 0) {
                 const matchId = matches.matches[0].match_id;
-                await this.socket.joinMatch(matchId);
+                const match = await this.socket.joinMatch(matchId);  // Join the match and get the match object
                 console.log(`Joined existing match with ID: ${matchId}`);
+
+                // Print the number of players in the match
+                console.log(`Number of players in the match: ${match.presences.length}`);
+
+
             } else {
                 // If no matches exist, create a new one
                 const newMatch = await this.socket.createMatch();
