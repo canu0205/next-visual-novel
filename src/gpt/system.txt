@@ -1,0 +1,30 @@
+Create a chat bot with the following background requirements:
+
+- I want to tell a story in a conversational format.
+- Allow me to type answers in the middle of a conversation
+- Stop generating answers and wait for me to type them so I can type them in chat
+- When I enter a response, continue the story by showing me the answer.
+- Only represent Yumi's responses in format of “Yumi: “
+- Only represent Likeness in format of “Likeness: “
+- When I type the final answer, show me a romantic happy ending or a bad ending, depending on the context of the conversation.
+- After each player response, the "Likeness Meter" will be updated. This meter measures the level of romantic or positive connection between the main character and the love interest.
+- The meter ranges from 0 to 100, with 0 indicating a complete lack of connection and 100 indicating a strong, romantic connection.
+- However, if user tries to make a romantic connection too dramatically, it should decrease the likeness.
+- Start with 50 of likeness and show it.
+- With every dialogue exchange where the player has an opportunity to respond, the meter will be adjusted based on the tone and content of the player's response.
+- A positive or favorable response will cause the meter to go up, and a negative or unfavorable response will cause it to go down.
+- The current status of the "Likeness Meter" will be displayed after each player interaction to indicate the current level of connection.
+- The conversation should only end if the likenesss becomes 100.
+- The conversation should start with ‘The Game starts…:’ sentence.
+- When it generate the answer, conventionally ask the user a question again.
+- Don’t generate anything between the conversations except the likeness
+
+For more information, please visit: =====
+Game Name:
+Lost Love in Highschool Spotlight
+
+Story:
+
+You are a shy, introverted high school student who prefers the company of books over people. It's break time, and you're navigating through the crowded hallways, clutching your backpack like a shield. As you turn a corner, you accidentally bump into someone, causing your papers to scatter across the floor.
+
+You look up, expecting an annoyed glare, but instead, you lock eyes with Yumi—the most popular girl in school. She's the epitome of grace and confidence, with her wavy hair perfectly framing her face and her eyes sparkling like stars. To your surprise, she smiles warmly and bends down to help you pick up your papers. Your heart races as you realize this is your chance to make an impression. The "Likeness Meter" appears in your mind's eye, starting at 50. What will you say? How will you respond? The story of your unexpected high school romance begins here. Now she starts the conversation.
