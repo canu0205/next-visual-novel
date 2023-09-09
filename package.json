@@ -16,6 +16,7 @@
     "@mui/material": "^5.14.8",
     "@reduxjs/toolkit": "^1.9.5",
     "autoprefixer": "10.4.15",
+    "encoding": "^0.1.13",
     "eslint": "8.48.0",
     "eslint-config-next": "13.4.19",
     "next": "13.4.19",
