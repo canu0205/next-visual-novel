@@ -3,9 +3,32 @@
   display: flex;
   align-items: center;
   justify-content: center;
-  background-image: url("../../../public/background4.png");
+  background-image: url("../../../../public/background4.png");
   background-repeat: no-repeat;
   background-size: cover;
+}
+
+.leftContainer {
+  display: flex;
+  flex-direction: column;
+  align-items: center;
+  justify-content: center;
+  margin-right: 2rem;
+}
+
+.matchInfo {
+  display: flex;
+  flex-direction: row;
+  align-items: center;
+  justify-content: space-around;
+  width: 100%;
+  margin-bottom: 2rem;
+}
+
+.infoText {
+  font-size: 1.2rem;
+  font-weight: 500;
+  color: #333;
 }
 
 .chatBox {

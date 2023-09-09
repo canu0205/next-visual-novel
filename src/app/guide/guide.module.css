@@ -1,0 +1,73 @@
+.guideContainer {
+    display: flex;
+    background-image: url("../../../public/background2.png");
+    background-repeat: no-repeat;
+    background-size: cover;
+    height: 100vh;
+    background-position: center;
+    justify-content: center;
+    align-items: center;
+  }
+  
+  .guideBox {
+    display: inline-block;
+    justify-content: center;
+    align-items: center;
+    flex-direction: column;
+    margin: 2rem;
+    background-color: #CCCCCC;
+    border: 2px solid black;
+    width: max(200px, 20vw);
+    padding: 0 1rem 1rem 1rem;
+  }
+  
+  .title {
+    font-size: 1.5rem;
+    font-weight: bold;
+    padding-top: 1rem;
+    display: flex;
+    justify-content: center;
+    align-items: center;
+    flex-direction: column;
+  }
+  
+  .inputContainer {
+    display: flex;
+    justify-content: center;
+    align-items: center;
+    font-size: 1rem;
+    padding: 0 1rem;
+  }
+
+  
+.btnContainer {
+  display: flex;
+  justify-content: center;
+  align-items: center;
+}
+
+.btn {
+  margin: 1rem;
+  padding: 1rem;
+  border: 1px solid #ccc;
+  border-radius: 5px;
+  font-size: 1rem;
+  font-weight: bold;
+  cursor: pointer;
+  background-color: #fff;
+  color: #333;
+}
+
+.btn:hover {
+  background-color: #333;
+  color: #fff;
+}
+
+.imgContainer {
+  display: flex;
+  justify-content: center;
+  align-items: center;
+  margin: 1rem;
+}
+
+  
