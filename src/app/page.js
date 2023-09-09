@@ -1,10 +1,27 @@
-import Image from "next/image";
+import classes from "./home.module.css";
+import Link from "next/link";
 
 export default function Home() {
   return (
-    <main>
-      <h1>Visual Novel</h1>
-      <p>Fully Onchain Visual Novel</p>
-    </main>
+    <>
+      <div className={classes.homeContainer}>
+        <div className={classes.homeBox}>
+          <div className={classes.title}>Onchain Visual Novel</div>
+          <div className={classes.btnContainer}>
+            <Link href="/join">
+              <div className={classes.btn}>Start</div>
+            </Link>
+          </div>
+          <div className={classes.btnContainer}>
+            <div className={classes.btn}>Description</div>
+          </div>
+        </div>
+        <div className={classes.imgContainer}>
+          <div>
+            <img src="character2_preview_rev_1.png" />
+          </div>
+        </div>
+      </div>
+    </>
   );
 }

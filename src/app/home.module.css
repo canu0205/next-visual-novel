@@ -1,0 +1,54 @@
+.homeContainer {
+  display: flex;
+  background-image: url("../../public/background1.png");
+  background-repeat: no-repeat;
+  background-size: cover;
+  height: 100vh;
+  background-position: center;
+  justify-content: center;
+  align-items: center;
+}
+
+.homeBox {
+  display: flex;
+  justify-content: center;
+  align-items: center;
+  flex-direction: column;
+  margin: 2rem;
+}
+
+.title {
+  font-size: 2rem;
+  font-weight: bold;
+  padding: 1rem;
+}
+
+.btnContainer {
+  display: flex;
+  justify-content: center;
+  align-items: center;
+}
+
+.btn {
+  margin: 1rem;
+  padding: 1rem;
+  border: 1px solid #ccc;
+  border-radius: 5px;
+  font-size: 1rem;
+  font-weight: bold;
+  cursor: pointer;
+  background-color: #fff;
+  color: #333;
+}
+
+.btn:hover {
+  background-color: #333;
+  color: #fff;
+}
+
+.imgContainer {
+  display: flex;
+  justify-content: center;
+  align-items: center;
+  margin: 1rem;
+}

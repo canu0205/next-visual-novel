@@ -1,0 +1,38 @@
+.selectContainer {
+  height: 100vh;
+  display: flex;
+  flex-direction: row;
+  flex-wrap: wrap;
+  justify-content: center;
+  align-items: center;
+  background-image: url("../../../public/background3.png");
+  background-repeat: no-repeat;
+  background-size: cover;
+}
+
+.selectBox {
+  min-width: 350px;
+  min-height: 350px;
+  border: 1px solid #ccc;
+  border-radius: 5px;
+  padding: 5px;
+  margin: 5px;
+  font-size: 16px;
+  font-family: "Roboto", sans-serif;
+  color: #333;
+  background-color: #fff;
+  cursor: pointer;
+  display: flex;
+  justify-content: center;
+  align-items: center;
+  background-image: url("../../../public/background4.png");
+  background-repeat: no-repeat;
+  background-size: cover;
+}
+
+.boxContent {
+  display: flex;
+  justify-content: center;
+  align-items: center;
+  font-size: 5rem;
+}
