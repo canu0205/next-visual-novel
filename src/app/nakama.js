@@ -49,8 +49,8 @@ class Nakama {
                 let cnt = match.presences.length;
                 console.log(`Number of players in the match: ${cnt}`);
     
-                if (cnt >= 2) {
-                    window.location.href = "/";
+                if (cnt >= 1) {
+                    window.location.href = "/select";
                 }
             } else {
                 // If no matches exist, create a new one
