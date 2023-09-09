@@ -5,6 +5,7 @@ import { useEffect, useState } from "react";
 import { setAccount } from "@/stores/accountSlice";
 import { useSelector, useDispatch } from "react-redux";
 import Loading from "@/components/loading/page";
+import Nakama from "@/app/nakama"; // Make sure to import your Nakama class
 
 export default function Join() {
   const dispatch = useDispatch();
@@ -14,6 +15,24 @@ export default function Join() {
 
   const handleEnterName = (e) => {
     dispatch(setAccount(e.target.value));
+  };
+
+  const startGame = async () => {
+    try {
+      setLoading(true);
+      await Nakama.authenticate();
+      console.log("Authenticated");
+
+      await Nakama.findMatch();
+      console.log("Match found");
+
+      // Redirect to the game scene or do whatever you need to do next
+      setLoading(false);
+    } catch (error) {
+      console.error("An error occurred:", error);
+      setLoading(false);
+      // Handle the error appropriately
+    }
   };
 
   return (
@@ -37,7 +56,7 @@ export default function Join() {
                 value={accountName}
                 onChange={handleEnterName}
               ></input>
-              <button className={classes.btn} onClick={() => setLoading(true)}>
+              <button className={classes.btn} onClick={startGame}>
                 Enter
               </button>
             </div>
