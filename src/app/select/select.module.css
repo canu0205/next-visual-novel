@@ -32,6 +32,23 @@
   background-size: cover;
 }
 
+.selectInfo {
+  position: absolute;
+  top: 1rem;
+  right: 1rem;
+  display: flex;
+  flex-direction: column;
+  align-items: center;
+  justify-content: center;
+  margin: 1rem;
+}
+
+.infoText {
+  font-size: 1.2rem;
+  font-weight: 500;
+  color: #333;
+}
+
 .boxContent {
   display: flex;
   justify-content: center;

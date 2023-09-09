@@ -52,3 +52,9 @@
   align-items: center;
   margin: 1rem;
 }
+
+.back {
+  position: absolute;
+  top: 1rem;
+  left: 1rem;
+}
