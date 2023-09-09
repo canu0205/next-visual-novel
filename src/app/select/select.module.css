@@ -11,12 +11,14 @@
 }
 
 .selectBox {
-  min-width: 350px;
-  min-height: 350px;
+  max-width: 200px;
+  max-height: 200px;
+  min-width: 200px;
+  min-height: 200px;
   border: 1px solid #ccc;
   border-radius: 5px;
   padding: 5px;
-  margin: 5px;
+  margin: 1rem;
   font-size: 16px;
   font-family: "Roboto", sans-serif;
   color: #333;
@@ -34,5 +36,5 @@
   display: flex;
   justify-content: center;
   align-items: center;
-  font-size: 5rem;
+  font-size: 3rem;
 }
