@@ -13,7 +13,9 @@ export default function Home() {
             </Link>
           </div>
           <div className={classes.btnContainer}>
+            <Link href="/guide">
             <div className={classes.btn}>Description</div>
+            </Link>
           </div>
         </div>
         <div className={classes.imgContainer}>
