@@ -7,14 +7,7 @@ import { useSelector, useDispatch } from "react-redux";
 import Loading from "@/components/loading/page";
 
 export default function Join() {
-  const dispatch = useDispatch();
-  const accountName = useSelector((state) => state.account.name);
 
-  const [loading, setLoading] = useState(false);
-
-  const handleEnterName = (e) => {
-    dispatch(setAccount(e.target.value));
-  };
 
   return (
     <>
