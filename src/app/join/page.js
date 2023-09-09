@@ -6,8 +6,11 @@ import { setAccount } from "@/stores/accountSlice";
 import { useSelector, useDispatch } from "react-redux";
 import Loading from "@/components/loading/page";
 import Nakama from "@/app/nakama"; // Make sure to import your Nakama class
+import ArrowBackIcon from "@mui/icons-material/ArrowBack";
+import { useRouter } from "next/navigation";
 
 export default function Join() {
+  const router = useRouter();
   const dispatch = useDispatch();
   const accountName = useSelector((state) => state.account.name);
 
@@ -37,6 +40,12 @@ export default function Join() {
 
   return (
     <>
+      <div className={classes.back}>
+        <button className={classes.btn} onClick={() => router.push(`/`)}>
+          <ArrowBackIcon />
+          back to main
+        </button>
+      </div>
       <div className={classes.joinContainer}>
         <div className={classes.imgContainer}>
           <div>

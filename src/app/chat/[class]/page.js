@@ -86,6 +86,7 @@ export default function Chat({ params }) {
 
   const handleGptResponse = async () => {
     const gptResponse = await getGptResponse();
+    console.log(gptResponse);
     setMessages((prevMessages) => [...prevMessages, gptResponse]);
   };
 
