@@ -3,13 +3,27 @@
 import classes from "./chat.module.css";
 import { useState, useEffect } from "react";
 import OpenAI from "openai";
+import { useSelector, useDispatch } from "react-redux";
+import { setLikeness, setCur } from "@/stores/accountSlice";
+import { useRouter } from "next/navigation";
 
 const openai = new OpenAI({
   apiKey: process.env.NEXT_PUBLIC_OPENAI_API_KEY,
   dangerouslyAllowBrowser: true,
 });
 
-export default function Chat() {
+export default function Chat({ params }) {
+  const router = useRouter();
+  const dispatch = useDispatch();
+  const { name, likeness, curRound, curClass } = useSelector(
+    (state) => state.account
+  );
+  // console.log("name", name);
+  // console.log("likeness", likeness);
+  // console.log("curRound", curRound);
+  // console.log("curClass", curClass);
+
+  const [like, setLike] = useState("50");
   const [userInput, setUserInput] = useState("");
   const [messages, setMessages] = useState([
     {
@@ -19,6 +33,16 @@ export default function Chat() {
     },
   ]);
 
+  // setTimeout(() => {
+  //   router.push(`/select?round=${Number(curRound) + 1}`);
+  // }, 12000);
+
+  useEffect(() => {
+    dispatch(setCur({ curClass: params.class, curRound: curRound }));
+    startTimer(20);
+  }, []);
+
+  // use GPT-4 to generate the response
   useEffect(() => {
     if (messages.length == 1) {
       handleGptResponse();
@@ -65,11 +89,63 @@ export default function Chat() {
     setMessages((prevMessages) => [...prevMessages, gptResponse]);
   };
 
+  const parseContent = (content) => {
+    console.log(content);
+    content.split(":").forEach((item, idx) => {
+      console.log(item);
+    });
+
+    const contentArr = content.split(":");
+    console.log(contentArr);
+    // setLike(contentArr[2]);
+
+    if (contentArr.length == 1) {
+      return contentArr[0];
+    }
+
+    const contentArr2 = contentArr[1].split("\n");
+    console.log(contentArr2);
+
+    return contentArr2[0];
+  };
+
+  function startTimer(durationInSeconds) {
+    let timer = durationInSeconds;
+    const timerDisplay = document.getElementById("timer-display");
+
+    const countdown = setInterval(function () {
+      const minutes = Math.floor(timer / 60);
+      const seconds = timer % 60;
+
+      timerDisplay.textContent = `${minutes}:${
+        seconds < 10 ? "0" : ""
+      }${seconds}`;
+
+      if (--timer < 0) {
+        clearInterval(countdown);
+        timerDisplay.textContent = `Time's up!`;
+        router.push(`/select?round=${Number(curRound) + 1}`);
+      }
+    }, 1000);
+  }
+
   return (
     <>
       <div className={classes.container}>
-        <div>
-          <img src="pic4.png" />
+        <div className={classes.leftContainer}>
+          <div className={classes.matchInfo}>
+            <div>
+              <div className={classes.infoText}>{`Class ${params.class}`}</div>
+              <div
+                className={classes.infoText}
+              >{`${curRound} period break`}</div>
+              <div id="timer-display" className={classes.infoText}>
+                Time left
+              </div>
+            </div>
+            <div className={classes.infoText}>{`Likeness: ${like}`}</div>
+          </div>
+          <img src="../pic4.png" />
         </div>
         <div className={classes.chatBox}>
           <div className={classes.chatContent}>
@@ -79,15 +155,17 @@ export default function Chat() {
               if (message.role === "user") {
                 return (
                   <div key={idx} className={classes.rightAl}>
-                    <div
-                      className={classes.chatUser}
-                    >{`${message.content}`}</div>
+                    <div className={classes.chatUser}>{`${parseContent(
+                      message.content
+                    )}`}</div>
                   </div>
                 );
               } else {
                 return (
                   <div key={idx}>
-                    <div className={classes.chat}>{`${message.content}`}</div>
+                    <div className={classes.chat}>{`${parseContent(
+                      message.content
+                    )}`}</div>
                   </div>
                 );
               }
