@@ -22,16 +22,23 @@ export default function Join() {
       setLoading(true);
       await Nakama.authenticate();
       console.log("Authenticated");
-
+  
+      // Claim persona tag here
+      const personaTag = accountName; // Assuming accountName is what you want to use as the persona tag
+      await Nakama.claimPersonaTag(personaTag);
+      console.log("Persona tag claimed");
+  
+      // Create player here
+      await Nakama.createPlayer(personaTag);
+      console.log("Player created");
+  
       await Nakama.findMatch();
       console.log("Match found");
-
-      // Redirect to the game scene or do whatever you need to do next
+  
       setLoading(false);
     } catch (error) {
       console.error("An error occurred:", error);
       setLoading(false);
-      // Handle the error appropriately
     }
   };
 

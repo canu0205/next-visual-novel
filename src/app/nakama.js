@@ -61,6 +61,35 @@ class Nakama {
             console.error("An error occurred:", error);
         }
     }
+
+      // Nakama.js
+      async claimPersonaTag(personaTag) {
+        try {
+          const payload = { "persona_tag": personaTag };
+          const response = await this.client.rpc(this.session, "nakama/claim-persona", payload);
+          console.log("Persona tag claimed successfully", response);
+        } catch (error) {
+          console.error("Error claiming persona tag:", error.message);
+        }
+      }
+
+      async createPlayer(nickname) {
+        try {
+          //console.log("createPlayer function called with nickname:", nickname);  // Debug log
+      
+          const payload = { "nickname": nickname };
+          //console.log("Payload for createPlayer:", payload);  // Debug log
+      
+          const response = await this.client.rpc(this.session, "tx-create-player", payload);
+          //console.log("RPC call made to tx-create-player");  // Debug log
+      
+          console.log("Player created successfully", response);  // Debug log
+        } catch (error) {
+          console.error("Error creating player:", error.message);  // Debug log
+        }
+      }
+      
+
     
 }
     
