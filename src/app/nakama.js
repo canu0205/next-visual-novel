@@ -43,8 +43,15 @@ class Nakama {
             // If there are existing matches, join the first one
             if (matches.matches.length > 0) {
                 const matchId = matches.matches[0].match_id;
-                await this.socket.joinMatch(matchId);
+                const match = await this.socket.joinMatch(matchId);  // Join the match and get the match object
                 console.log(`Joined existing match with ID: ${matchId}`);
+                // Print the number of players in the match
+                let cnt = match.presences.length;
+                console.log(`Number of players in the match: ${cnt}`);
+    
+                if (cnt >= 2) {
+                    window.location.href = "/";
+                }
             } else {
                 // If no matches exist, create a new one
                 const newMatch = await this.socket.createMatch();
@@ -54,6 +61,7 @@ class Nakama {
             console.error("An error occurred:", error);
         }
     }
+    
 }
     
 
